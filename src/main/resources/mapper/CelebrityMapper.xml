@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.chd.douban.mapper.CelebrityMapper">
+    <select id="findallcele" resultType="cn.edu.chd.douban.bean.Celebrity">
+        select
+        celebrity_id as celebrityId, `name`, gender, constellation, birthday, date_of_death as dateOfDeath,  birthplace,
+        job, other_foreign_names as otherForeignNames, other_chinese_names as otherChineseNames, families, human_src as humanSrc
+        from t_celebrity
+    </select>
+</mapper>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.chd.douban.mapper.FilmMapper">
+    <select id="findAllFilm" resultType="cn.edu.chd.douban.bean.Film">
+        select
+        film_id AS filmId, title, `year`, types, region, release_date as releaseDate, `size`,
+        star, star_percent as starPercent, comment_num as commentNum, src
+        from t_film
+    </select>
+
+    <select id="findVfilmByCon" resultType="cn.edu.chd.douban.vo.Vfilm">
+        select
+        film_id AS filmId, title, `year`, types, region, release_date as releaseDate, `size`,
+        star, star_percent as starPercent, comment_num as commentNum, src, director, writer, actor
+        from v_film
+        <where>
+            <if test="filmId != null">
+                and film_id = #{filmId}
+            </if>
+            <if test="types != null">
+                and types like concat('%',#{types},'%')
+            </if>
+            <if test="region != null">
+                and region like concat('%',#{region},'%')
+            </if>
+            <if test="year != null">
+                <choose>
+                    <when test="year.getYear() &lt;= 1990">
+                        AND `year` &lt;= 1990
+                    </when>
+                    <when test="year.getYear() &lt;= 2000">
+                        AND `year` &lt;= 2000 AND `year` &gt;= 1991
+                    </when>
+                    <when test="year.getYear() &lt;= 2014">
+                        AND `year` &lt;= 2014 AND `year` &gt;= 2001
+                    </when>
+                    <otherwise>
+                        AND `year`=#{year}
+                    </otherwise>
+                </choose>
+            </if>
+            <if test="director != null and director != '' ">
+                and director LIKE CONCAT('%',#{director},'%')
+            </if>
+        </where>
+        order by
+        <choose>
+            <when test="star != null">
+                star DESC
+            </when>
+            <when test="commentNum != null">
+                comment_num DESC
+            </when>
+        </choose>
+    </select>
+
+    <select id="orderCountryNum" resultType="cn.edu.chd.douban.vo.CountryFilmNum">
+        select SUBSTRING_INDEX(region, '/', 1) as countryName, count(region) as num
+        from t_film
+        group by SUBSTRING_INDEX(region, '/', 1)
+        ORDER BY num DESC
+    </select>
+
+    <select id="orderTypesNum" resultType="java.util.HashMap">
+        SELECT t.`type` as `type`, COUNT(*) as num
+        FROM t_film AS f,t_type AS t
+        WHERE f.`types` LIKE CONCAT('%',t.`type`,'%')
+        GROUP BY t.type
+    </select>
+
+</mapper>
