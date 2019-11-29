@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CHD_观影指南</title>
+    <!--<meta name="description" content="">-->
+    <!--<meta name="author" content="">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../plugins/webapps/css/base.css">
+    <link rel="stylesheet" href="../plugins/webapps/css/vendor.css">
+    <link rel="stylesheet" href="../plugins/webapps/css/main.css">
+    <script src="../plugins/webapps/js/modernizr.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="../plugins/webapps/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../plugins/webapps/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/webapps/images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+	<script src="../plugins/incubator-echarts-4.5.0/dist/echarts.js"></script>
+</head>
+
+<body>
+
+<!-- 左侧标题栏渐入动画效果 -->
+<div id="preloader">
+    <div id="loader" class="dots-fade">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<!-- 左侧标题栏 -->
+<div id="top" class="s-wrap site-wrapper">
+    <header class="s-header">
+        <div class="header__top">
+            <div class="header__logo">
+                <a class="site-logo smoothscroll" href="#top">
+                    <img src="../plugins/webapps/images/logo.svg" alt="Homepage">
+                </a>
+            </div>
+
+            <!-- toggles -->
+            <a href="#0" class="header__search-trigger"></a>
+            <a href="#0" class="header__menu-toggle"><span>Menu</span></a>
+
+        </div> <!-- end header__top -->
+
+        <nav class="header__nav-wrap">
+            <!-- 导航栏 -->
+            <ul class="header__nav">
+                <li class="current"><a href="film_index.html" title="">首页</a></li>
+                <li><a href="film_top20.html" title="">Top 20</a></li>
+                <li><a href="film_year.html" title="">年度推荐</a></li>
+                <li><a href="film_classfiy.html" title="">选好片</a> </li>
+                <!--<li class="has-children">-->
+                <!--<a href="#0" title="">选好片</a>-->
+                <!--<ul class="sub-menu">-->
+                <!--<li><a href="category.html">大陆</a></li>-->
+                <!--<li><a href="category.html">港澳台</a></li>-->
+                <!--<li><a href="category.html">欧美</a></li>-->
+                <!--<li><a href="category.html">其他</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+                <!--<li><a href="page-about.html" title="">About</a></li>-->
+                <!--<li><a href="page-contact.html" title="">Contact</a></li>-->
+            </ul> <!-- end header__nav -->
+
+            <!-- 分享链接 -->
+            <ul class="header__social">
+                <li class="ss-facebook">
+                    <a href="https://facebook.com/">
+                        <span class="screen-reader-text">Facebook</span>
+                    </a>
+                </li>
+                <li class="ss-twitter">
+                    <a href="#0">
+                        <span class="screen-reader-text">Twitter</span>
+                    </a>
+                </li>
+                <li class="ss-dribbble">
+                    <a href="#0">
+                        <span class="screen-reader-text">Dribbble</span>
+                    </a>
+                </li>
+                <li class="ss-pinterest">
+                    <a href="#0">
+                        <span class="screen-reader-text">Behance</span>
+                    </a>
+                </li>
+            </ul>
+
+        </nav> <!-- end header__nav-wrap -->
+    </header> <!-- end s-header -->
+
+    <div class="s-content">
+
+        <div class="masonry-wrap">
+
+            <div class="masonry">
+
+                <div class="grid-sizer"></div>
+
+                <!-- 第一部分 -->
+                <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+
+                    <div class="entry__thumb">
+						<div id="img_1" style="width: 100%;height:400px;"></div>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            <h2 class="entry__title">电影类型数量及热度图</h2>
+                        </div>
+						     <div class="entry__meta">
+								<span class="entry__meta-cat">
+									发布时间：
+								</span>
+                                <span class="entry__meta-date">
+                                        2019-11-20
+                                 </span>
+                            </div>
+                        <div class="entry__excerpt">
+                            <p>分析每种电影类型上映的数量以及受欢迎程度</p>
+                        </div>
+						
+                    </div>
+
+                </article> <!-- end article -->
+				<article class="masonry__brick entry format-standard animate-this" style="width:100%"></article>
+
+                <!-- 第二部分 -->
+                <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+
+                    <div class="entry__thumb">
+						<div id="img_2" style="width: 100%;height:400px;"></div>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            <h2 class="entry__title">电影类型数量及评分图</h2>
+                        </div>
+						     <div class="entry__meta">
+								<span class="entry__meta-cat">
+									发布时间：
+								</span>
+                                <span class="entry__meta-date">
+                                    2019-11-20
+                                 </span>
+                            </div>
+                        <div class="entry__excerpt">
+                            <p>分析每种电影类型上映的数量以及平均质量</p>
+                        </div>
+						
+                    </div>
+
+                </article> <!-- end article -->
+				<article class="masonry__brick entry format-standard animate-this" style="width:100%"></article>
+				
+				<!-- 第三部分 -->
+                <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+
+                    <div class="entry__thumb">
+						<div id="img_3" style="width: 100%;height:400px;"></div>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            <h2 class="entry__title">电影地区数量及热度图</h2>
+                        </div>
+						     <div class="entry__meta">
+								<span class="entry__meta-cat">
+									发布时间：
+								</span>
+                                <span class="entry__meta-date">
+                                        2019-11-22
+                                 </span>
+                            </div>
+                        <div class="entry__excerpt">
+                            <p>分析每个地区上映电影的数量以及受欢迎程度</p>
+                        </div>
+                    </div>
+
+                </article> <!-- end article -->
+				<article class="masonry__brick entry format-standard animate-this" style="width:100%"></article>
+				
+				<!-- 第四部分 -->
+                <article class="masonry__brick entry format-standard animate-this" style="width:100%">
+
+                    <div class="entry__thumb">
+						<div id="img_4" style="width: 100%;height:400px;"></div>
+                    </div>
+
+                    <div class="entry__text">
+                        <div class="entry__header">
+                            <h2 class="entry__title">电影地区数量及评分图</h2>
+                        </div>
+						     <div class="entry__meta">
+								<span class="entry__meta-cat">
+									发布时间：
+								</span>
+                                <span class="entry__meta-date">
+                                    2019-11-22
+                                 </span>
+                            </div>
+                        <div class="entry__excerpt">
+                            <p>分析每个地区上映电影的数量以及平均质量</p>
+                        </div>
+						
+                    </div>
+
+                </article> <!-- end article -->
+
+
+            </div> <!-- end masonry -->
+
+        </div> <!-- end masonry-wrap -->
+
+
+    </div> <!-- end s-content -->
+
+    <footer class="s-footer">
+
+
+        <div class="go-top" style="margin-right: 50px">
+            <a class="smoothscroll" title="Back to Top" href="#top"></a>
+        </div>
+    </footer>
+
+</div> <!-- end s-wrap -->
+
+
+<!-- Java Script-->
+<script src="../plugins/webapps/js/jquery-3.2.1.min.js"></script>
+<script src="../plugins/webapps/js/plugins.js"></script>
+<script src="../plugins/webapps/js/main.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function (){
+		$.ajax({
+			"url":"/film/ordertypes",
+			"type":"get",
+			"dataType":"json",
+			"success":function(obj){
+				if(obj.state === 1){
+					//分析获取的数据
+					
+					
+					// var types_list = ['剧情','喜剧','动作','爱情','科幻','动画','悬疑',
+					// 					'惊悚','恐怖','犯罪','同性','音乐','歌舞','传记',
+					// 					'历史','战争','西部','奇幻','冒险','灾难','武侠',
+					// 					'情色'];
+
+					var types_list = [];
+					var amountsByType = [];
+					var heatsByType = [];
+					var starByType = [];
+					let data = obj.data;
+
+
+                    for(let i = 0;i < data.length;i++){
+                        types_list.push(data[i]["itemName"]);
+                        amountsByType.push(data[i]["num"]);
+                        heatsByType.push(data[i]["heat"]);
+                        starByType.push(data[i]["score"].toFixed(2));
+                    }
+					
+					//开始绘制图表
+					var option_1 = {
+						title:{
+							text: '类型热度图',
+						},
+						tooltip: {
+							trigger: 'axis',
+							axisPointer: {
+								type: 'cross',
+								crossStyle: {
+									color: '#999'
+								}
+							}
+						},
+						toolbox: {
+							feature: {
+								dataView: {show: true, readOnly: false},
+								magicType: {show: true, type: ['line', 'bar']},
+								restore: {show: true},
+								saveAsImage: {show: true}
+							}
+						},
+						legend: {
+							data:['总数量','总热度']
+						},
+						xAxis: [
+							{
+								type: 'category',
+								data: types_list,	//所有类型
+								axisPointer: {
+									type: 'shadow'
+								}
+							}
+						],
+						yAxis: [
+							{
+								type: 'value',
+								name: '数量',
+								min: 0,
+								max: 1000,
+								interval: 100,
+								axisLabel: {
+									formatter: '{value} 部'
+								}
+							},
+
+							{
+								type: 'value',
+								name: '热度',
+								min: 0,
+								max: 10,
+								interval: 1,
+								axisLabel: {
+									formatter: '{value} 数量级'
+								}
+							}
+						],
+						series: [
+							{
+								name:'总数量',
+								type:'bar',
+								data:amountsByType	//类型--电影数量
+							},
+							{
+								name:'总热度',
+								type:'line',
+								yAxisIndex: 1,
+								data:heatsByType	//类型--热度
+							},
+						]
+					};
+					
+					
+					var option_2 = {
+						title:{
+							text: '类型评分图',
+						},
+						tooltip: {
+							trigger: 'axis',
+							axisPointer: {
+								type: 'cross',
+								crossStyle: {
+									color: '#999'
+								}
+							}
+						},
+						toolbox: {
+							feature: {
+								dataView: {show: true, readOnly: false},
+								magicType: {show: true, type: ['line', 'bar']},
+								restore: {show: true},
+								saveAsImage: {show: true}
+							}
+						},
+						legend: {
+							data:['总数量','总评分']
+						},
+						xAxis: [
+							{
+								type: 'category',
+								data: types_list,	//所有类型
+								axisPointer: {
+									type: 'shadow'
+								}
+							}
+						],
+						yAxis: [
+							{
+								type: 'value',
+								name: '数量',
+								min: 0,
+								max: 1000,
+								interval: 50,
+								axisLabel: {
+									formatter: '{value} 部'
+								}
+							},
+
+							{
+								type: 'value',
+								name: '分数',
+								min: 0,
+								max: 10,
+								interval: 1,
+								axisLabel: {
+									formatter: '{value} 分'
+								}
+							}
+						],
+						series: [
+							{
+								name:'总数量',
+								type:'bar',
+								data:amountsByType	//类型--电影数量
+							},
+							{
+								name:'总评分',
+								type:'line',
+								yAxisIndex: 1,
+								data:starByType	//类型--评分
+							},
+						]
+					};
+
+					echarts.init(document.getElementById("img_1")).setOption(option_1);
+					echarts.init(document.getElementById("img_2")).setOption(option_2);
+
+					
+				}else{
+					alert(obj.message);
+				}
+			},
+			"error":function(){
+				alert("请求错误！");
+			}
+		});
+
+
+        $.ajax({
+            "url":"/film/ordercountry",
+            "type":"get",
+            "dataType":"json",
+            "success":function(obj){
+                if(obj.state === 1){
+                    //分析获取的数据
+
+
+                    // var types_list = ['剧情','喜剧','动作','爱情','科幻','动画','悬疑',
+                    //     '惊悚','恐怖','犯罪','同性','音乐','歌舞','传记',
+                    //     '历史','战争','西部','奇幻','冒险','灾难','武侠',
+                    //     '情色'];
+                    // var regions_list = ['中国大陆','中国香港','中国台湾','美国','日本','韩国','英国',
+                    //     '法国','德国','意大利','西班牙','印度','泰国','俄罗斯','伊朗',
+                    //     '加拿大','澳大利亚','爱尔兰','瑞典','巴西','丹麦'];
+
+                    var regions_list = [];
+                    var amountsByRegion = [];
+                    var heatsByRegion = [];
+                    var starByRegion = [];
+                    let data = obj.data;
+
+                    for(let i = 0;i < data.length;i++){
+                        regions_list.push(data[i]["itemName"]);
+                        amountsByRegion.push(data[i]["num"]);
+                        heatsByRegion.push(data[i]["heat"]);
+                        starByRegion.push(data[i]["score"].toFixed(2));
+                    }
+
+                    //开始绘制图表
+                    var option_3 = {
+                        title:{
+                            text: '地区热度图',
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross',
+                                crossStyle: {
+                                    color: '#999'
+                                }
+                            }
+                        },
+                        toolbox: {
+                            feature: {
+                                dataView: {show: true, readOnly: false},
+                                magicType: {show: true, type: ['line', 'bar']},
+                                restore: {show: true},
+                                saveAsImage: {show: true}
+                            }
+                        },
+                        legend: {
+                            data:['总数量','总热度']
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: regions_list,	//所有地区
+                                axisPointer: {
+                                    type: 'shadow'
+                                }
+                            }
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value',
+                                name: '数量',
+                                min: 0,
+                                max: 1000,
+                                interval: 100,
+                                axisLabel: {
+                                    formatter: '{value} 部'
+                                }
+                            },
+
+                            {
+                                type: 'value',
+                                name: '热度',
+                                min: 0,
+                                max: 10,
+                                interval: 1,
+                                axisLabel: {
+                                    formatter: '{value} 数量级'
+                                }
+                            }
+                        ],
+                        series: [
+                            {
+                                name:'总数量',
+                                type:'bar',
+                                data:amountsByRegion	//地区--电影数量
+                            },
+                            {
+                                name:'总热度',
+                                type:'line',
+                                yAxisIndex: 1,
+                                data:heatsByRegion	//地区--热度
+                            },
+                        ]
+                    };
+
+                    var option_4 = {
+                        title:{
+                            text: '数量热度图',
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross',
+                                crossStyle: {
+                                    color: '#999'
+                                }
+                            }
+                        },
+                        toolbox: {
+                            feature: {
+                                dataView: {show: true, readOnly: false},
+                                magicType: {show: true, type: ['line', 'bar']},
+                                restore: {show: true},
+                                saveAsImage: {show: true}
+                            }
+                        },
+                        legend: {
+                            data:['总数量','总评分']
+                        },
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: regions_list,	//所有地区
+                                axisPointer: {
+                                    type: 'shadow'
+                                }
+                            }
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value',
+                                name: '数量',
+                                min: 0,
+                                max: 1000,
+                                interval: 100,
+                                axisLabel: {
+                                    formatter: '{value} 部'
+                                }
+                            },
+
+                            {
+                                type: 'value',
+                                name: '评分',
+                                min: 0,
+                                max: 10,
+                                interval: 1,
+                                axisLabel: {
+                                    formatter: '{value} 万'
+                                }
+                            }
+                        ],
+                        series: [
+                            {
+                                name:'总数量',
+                                type:'bar',
+                                data:amountsByRegion	//地区--电影数量
+                            },
+                            {
+                                name:'总评分',
+                                type:'line',
+                                yAxisIndex: 1,
+                                data:starByRegion	//地区--评分
+                            },
+                        ]
+                    };
+
+                    echarts.init(document.getElementById("img_3")).setOption(option_3);
+                    echarts.init(document.getElementById("img_4")).setOption(option_4);
+
+                }else{
+                    alert(obj.message);
+                }
+            },
+            "error":function(){
+                alert("请求错误！");
+            }
+        });
+	});
+
+
+
+</script>
+
+</body>

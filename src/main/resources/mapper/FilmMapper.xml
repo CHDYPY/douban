@@ -6,18 +6,22 @@
     <select id="findAllFilm" resultType="cn.edu.chd.douban.bean.Film">
         select
         film_id AS filmId, title, `year`, types, region, release_date as releaseDate, `size`,
-        star, star_percent as starPercent, comment_num as commentNum, src
+        star, star_percent as starPercent, comment_num as commentNum, src, description, `language`, other_name as otherName
         from t_film
+        order by star desc
     </select>
 
     <select id="findVfilmByCon" resultType="cn.edu.chd.douban.vo.Vfilm">
         select
         film_id AS filmId, title, `year`, types, region, release_date as releaseDate, `size`,
-        star, star_percent as starPercent, comment_num as commentNum, src, director, writer, actor
+        star, star_percent as starPercent, comment_num as commentNum, src, description, `language`, other_name as otherName, director, writer, actor
         from v_film
         <where>
             <if test="filmId != null">
                 and film_id = #{filmId}
+            </if>
+            <if test="title != null">
+                and title like CONCAT('%',#{title},'%')
             </if>
             <if test="types != null">
                 and types like concat('%',#{types},'%')
@@ -27,14 +31,32 @@
             </if>
             <if test="year != null">
                 <choose>
-                    <when test="year.getYear() &lt;= 1990">
-                        AND `year` &lt;= 1990
+                    <!--<when test="year.getYear() &lt;= 1990">-->
+                        <!--AND `year` &lt;= 1990-->
+                    <!--</when>-->
+                    <!--<when test="year.getYear() &lt;= 2000">-->
+                        <!--AND `year` &lt;= 2000 AND `year` &gt;= 1991-->
+                    <!--</when>-->
+                    <!--<when test="year.getYear() &lt;= 2014">-->
+                        <!--AND `year` &lt;= 2014 AND `year` &gt;= 2001-->
+                    <!--</when>-->
+                    <when test="year.getYear()+1900 == 2010">
+                        AND `year` >= 2010 and `year` &lt;= 2017
                     </when>
-                    <when test="year.getYear() &lt;= 2000">
-                        AND `year` &lt;= 2000 AND `year` &gt;= 1991
+                    <when test="year.getYear()+1900 == 2000">
+                        AND `year` >= 2000 AND `year` &lt;= 2009
                     </when>
-                    <when test="year.getYear() &lt;= 2014">
-                        AND `year` &lt;= 2014 AND `year` &gt;= 2001
+                    <when test="year.getYear()+1900 == 1990">
+                        AND `year` >= 1990 AND `year` &lt;= 1999
+                    </when>
+                    <when test="year.getYear()+1900 == 1980">
+                        AND `year` >= 1980 AND `year` &lt;= 1989
+                    </when>
+                    <when test="year.getYear()+1900 == 1970">
+                        AND `year` >= 1970 AND `year` &lt;= 1979
+                    </when>
+                    <when test="year.getYear()+1900 == 1960">
+                        AND `year` &lt;= 1969
                     </when>
                     <otherwise>
                         AND `year`=#{year}
@@ -56,18 +78,21 @@
         </choose>
     </select>
 
-    <select id="orderCountryNum" resultType="cn.edu.chd.douban.vo.CountryFilmNum">
-        select SUBSTRING_INDEX(region, '/', 1) as countryName, count(region) as num
+    <select id="orderCountry" resultType="cn.edu.chd.douban.vo.Item">
+        select SUBSTRING_INDEX(region, '/', 1) as itemName, count(region) as num, sum(comment_num) as heat, avg(star) as score
         from t_film
         group by SUBSTRING_INDEX(region, '/', 1)
-        ORDER BY num DESC
+        order by num desc
     </select>
 
-    <select id="orderTypesNum" resultType="java.util.HashMap">
-        SELECT t.`type` as `type`, COUNT(*) as num
+    <select id="orderTypes" resultType="cn.edu.chd.douban.vo.Item">
+        SELECT t.`type` as itemName, count(region) as num, sum(comment_num) as heat, avg(star) as score
         FROM t_film AS f,t_type AS t
         WHERE f.`types` LIKE CONCAT('%',t.`type`,'%')
         GROUP BY t.type
+        order by num desc
     </select>
+
+
 
 </mapper>

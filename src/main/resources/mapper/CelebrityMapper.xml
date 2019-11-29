@@ -9,4 +9,33 @@
         job, other_foreign_names as otherForeignNames, other_chinese_names as otherChineseNames, families, human_src as humanSrc
         from t_celebrity
     </select>
+
+    <select id="findDirByFid" resultType="cn.edu.chd.douban.bean.Celebrity">
+        SELECT
+        c.celebrity_id as celebrityId, `name`, gender, constellation, birthday, date_of_death as dateOfDeath,  birthplace,
+        job, other_foreign_names as otherForeignNames, other_chinese_names as otherChineseNames, families, human_src as humanSrc
+        FROM
+        t_film_director AS d, t_celebrity AS c
+        WHERE  d.`celebrity_id` = c.`celebrity_id` and d.`film_id` = #{fid} and `name` like CONCAT('%',#{name},'%')
+    </select>
+
+    <select id="findWriByFid" resultType="cn.edu.chd.douban.bean.Celebrity">
+        SELECT
+        c.celebrity_id as celebrityId, `name`, gender, constellation, birthday, date_of_death as dateOfDeath,  birthplace,
+        job, other_foreign_names as otherForeignNames, other_chinese_names as otherChineseNames, families, human_src as humanSrc
+        FROM
+        t_film_writer AS w, t_celebrity AS c
+        WHERE  w.`celebrity_id` = c.`celebrity_id` and w.`film_id` = #{fid} and `name` like CONCAT('%',#{name},'%')
+    </select>
+
+    <select id="findActByFid" resultType="cn.edu.chd.douban.bean.Celebrity">
+        SELECT
+        c.celebrity_id as celebrityId, `name`, gender, constellation, birthday, date_of_death as dateOfDeath,  birthplace,
+        job, other_foreign_names as otherForeignNames, other_chinese_names as otherChineseNames, families, human_src as humanSrc
+        FROM
+        t_film_actor AS a, t_celebrity AS c
+        WHERE  a.`celebrity_id` = c.`celebrity_id` and a.`film_id` = #{fid} and `name` like CONCAT('%',#{name},'%')
+    </select>
+
+
 </mapper>

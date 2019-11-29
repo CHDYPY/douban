@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CelebrityService {
     List<Celebrity> findallcele();
+    Celebrity findDirByCele(Long fid, String name);
+
 }

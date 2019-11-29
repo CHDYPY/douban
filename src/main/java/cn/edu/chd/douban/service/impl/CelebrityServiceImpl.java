@@ -24,4 +24,24 @@ public class CelebrityServiceImpl implements CelebrityService {
 
         return celebrities;
     }
+
+    @Override
+    public Celebrity findDirByCele(Long fid, String name) {
+        Celebrity celebrities1 = celebrityMapper.findActByFid(fid, name);
+        Celebrity celebrities2 = celebrityMapper.findDirByFid(fid, name);
+        Celebrity celebrities3 = celebrityMapper.findWriByFid(fid, name);
+        if(celebrities1 == null && celebrities2 == null && celebrities3 == null) {
+            throw new ServiceException("明人列表为空！");
+        }
+        Celebrity celebrity = null;
+        if(celebrities1!= null){
+            celebrity = celebrities1;
+        } else if(celebrities2 != null) {
+            celebrity = celebrities2;
+        } else if(celebrities3 != null) {
+            celebrity = celebrities3;
+        }
+
+        return celebrity;
+    }
 }

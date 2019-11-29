@@ -14,6 +14,9 @@ public class Film {
     private String starPercent;
     private Long commentNum;
     private String src;
+    private String description;
+    private String language;
+    private String otherName;
 
     @Override
     public String toString() {
@@ -29,6 +32,9 @@ public class Film {
                 ", starPercent='" + starPercent + '\'' +
                 ", commentNum=" + commentNum +
                 ", src='" + src + '\'' +
+                ", description='" + description + '\'' +
+                ", language='" + language + '\'' +
+                ", otherName='" + otherName + '\'' +
                 '}';
     }
 
@@ -118,5 +124,29 @@ public class Film {
 
     public void setSrc(String src) {
         this.src = src;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getOtherName() {
+        return otherName;
+    }
+
+    public void setOtherName(String otherName) {
+        this.otherName = otherName;
     }
 }

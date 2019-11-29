@@ -4,12 +4,11 @@ import cn.edu.chd.douban.bean.Film;
 import cn.edu.chd.douban.mapper.FilmMapper;
 import cn.edu.chd.douban.service.FilmService;
 import cn.edu.chd.douban.service.ex.ServiceException;
-import cn.edu.chd.douban.vo.CountryFilmNum;
+import cn.edu.chd.douban.vo.Item;
 import cn.edu.chd.douban.vo.Vfilm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +19,10 @@ public class FilmServiceImpl implements FilmService {
 
     @Autowired
     private FilmMapper filmMapper;
+
+    private void log(Item item) {
+        item.setHeat(Math.log(item.getHeat()) / Math.log(10.0));
+    }
 
 //    private List<Vfilm> toTitle(List<Vfilm> vfilms) {
 //        List<Vfilm> vfilmList = new ArrayList<>();
@@ -52,26 +55,34 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
-    public List<CountryFilmNum> orderCountryNum() {
-        List<CountryFilmNum> countryFilmNums = filmMapper.orderCountryNum();
-        if(countryFilmNums.isEmpty()) {
+    public List<Item> orderCountryNum() {
+        List<Item> items = filmMapper.orderCountry();
+        if(items.isEmpty()) {
             throw new ServiceException("查询出错");
         }
-        return countryFilmNums;
+        for(int i = items.size() - 1; i>=0; i--) {
+            if(items.get(i).getNum()<=3) {
+                items.remove(i);
+            }
+        }
+        for(Item item: items)
+            log(item);
+        return items;
     }
 
     @Override
-    public HashMap<String, Long> orderTypesNum() {
-        HashMap<String, Long> map = new HashMap<>();
-        List<Map<String, Object>> list = filmMapper.orderTypesNum();
-        if (list == null && list.isEmpty()) {
-            throw new ServiceException("没有数据");
+    public List<Item> orderTypesNum() {
+        List<Item> items = filmMapper.orderTypes();
+        if(items.isEmpty()) {
+            throw new ServiceException("查询出错");
         }
-        for (Map<String, Object> map1 : list) {
-            String type = (String)map1.get("type");
-            Long num = (Long)map1.get("num");
-            map.put(type, num);
+        for(int i = items.size() - 1; i>=0; i--) {
+            if(items.get(i).getNum()<=3) {
+                items.remove(i);
+            }
         }
-        return map;
+        for(Item item: items)
+            log(item);
+        return items;
     }
 }

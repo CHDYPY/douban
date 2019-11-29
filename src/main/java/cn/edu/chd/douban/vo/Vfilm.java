@@ -7,7 +7,8 @@ public class Vfilm extends Film {
     private String director;
     private String writer;
     private String actor;
-    private int years;
+    private Integer years;
+    private String way;
 
 
     public String getDirector() {
@@ -34,12 +35,20 @@ public class Vfilm extends Film {
         this.actor = actor;
     }
 
-    public int getYears() {
+    public Integer getYears() {
         return years;
     }
 
-    public void setYears(int years) {
+    public void setYears(Integer years) {
         this.years = years;
+    }
+
+    public String getWay() {
+        return way;
+    }
+
+    public void setWay(String way) {
+        this.way = way;
     }
 
     @Override
@@ -50,6 +59,7 @@ public class Vfilm extends Film {
                 ", writer='" + writer + '\'' +
                 ", actor='" + actor + '\'' +
                 ", years='" + years + '\'' +
+                ", way='" + way + '\'' +
                 '}';
     }
 }
