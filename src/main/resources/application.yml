@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///douban?useUnicode=true&useSSL=true&serverTimezone=GMT%2B8&characterEncoding=utf8
+    username: root
+    password: 740406
+  main:
+    lazy-initialization: false
+mybatis:
+  mapper-locations: classpath*:/mapper/*.xml
+
+#设置项目启动端口
+server:
+  port: 8080
+#  servlet:
+#    context-path: /douban #将该路径作为项目路径添加到访问url中，
+    #例如以前只要http://localhost:8080/pages/film_index.html，
+    #现在是http://localhost:8080/douban/pages/film_index.html

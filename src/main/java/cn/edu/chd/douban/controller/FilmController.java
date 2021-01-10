@@ -26,6 +26,7 @@ public class FilmController {
         List<Film> films = filmService.findallfilms();
         return new JsonResult(films);
     }
+
     //通过调节查找电影（默认为评分排序,传入一个名为commentNum的变量就可以设置为人数排序）
     @GetMapping("/findvfilmbycon")
     public JsonResult findVfilmByCon(Vfilm vfilm) {

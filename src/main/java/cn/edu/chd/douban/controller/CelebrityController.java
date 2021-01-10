@@ -6,6 +6,7 @@ import cn.edu.chd.douban.service.CelebrityService;
 import cn.edu.chd.douban.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.UnsupportedEncodingException;
@@ -18,8 +19,9 @@ public class CelebrityController {
 
     @Autowired
     private CelebrityService celebrityService;
+
     //找到所有演员信息
-    @RequestMapping("/findallcele")
+    @RequestMapping(value={"/findallcele"}, method = {RequestMethod.GET, RequestMethod.HEAD})
     public JsonResult findallcele() {
         List<Celebrity> celebrities = celebrityService.findallcele();
         return new JsonResult(celebrities);
