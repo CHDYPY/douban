@@ -5,6 +5,42 @@
     <title>登录界面</title>
 </head>
 <body>
-    Hello world！
+    <script src="/plugins/webapps/js/jquery-3.2.1.min.js"></script>
+    <form>
+        用户名:<input id="username" type="text" name="username" > <br/>
+        密码  : <input id="password" type="text" name="password"> <br/>
+        <input id="login" type="button" value="登录">
+        <input id="register" type="button" value="注册">
+    </form>
+    <script>
+        $("#login").click (function () {
+            $.ajax({
+                url: "/user/login",
+                type: "post",
+                dataType: "json",
+                data: {
+                    username: $("#username").val(),
+                    password: $("#password").val(),
+                },
+                success: function (res) {
+                    if(res == 0) {
+                        alert("登录成功");
+                        window.location.href="/mainpage.html";
+                    } else {
+                        alert("登录失败");
+                    }
+                },
+                error: function (){
+                    alert("登录失败");
+                }
+            });
+        });
+
+
+        $("#register").click(function (){
+            window.location.href="/register.html";
+        });
+
+    </script>
 </body>
 </html>
