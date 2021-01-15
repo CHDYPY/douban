@@ -7,7 +7,7 @@
         insert into t_user values(#{id}, #{username}, #{password}, #{salt})
     </insert>
 
-    <select id="getUserByName" parameterType="cn.edu.chd.douban.bean.User">
+    <select id="getUserByName" resultType="cn.edu.chd.douban.bean.User" >
         select * from t_user where username = #{username}
     </select>
 </mapper>

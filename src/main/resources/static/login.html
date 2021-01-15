@@ -5,13 +5,14 @@
     <title>登录界面</title>
 </head>
 <body>
-    <script src="/plugins/webapps/js/jquery-3.2.1.min.js"></script>
+<script src="./plugins/webapps/js/jquery-3.2.1.min.js"></script>
     <form>
         用户名:<input id="username" type="text" name="username" > <br/>
         密码  : <input id="password" type="text" name="password"> <br/>
         <input id="login" type="button" value="登录">
         <input id="register" type="button" value="注册">
     </form>
+
     <script>
         $("#login").click (function () {
             $.ajax({
@@ -31,7 +32,7 @@
                     }
                 },
                 error: function (){
-                    alert("登录失败");
+                    alert("后台错误");
                 }
             });
         });

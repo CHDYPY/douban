@@ -3,6 +3,7 @@ package cn.edu.chd.douban.service.impl;
 import cn.edu.chd.douban.bean.User;
 import cn.edu.chd.douban.mapper.UserMapper;
 import cn.edu.chd.douban.service.UserService;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -17,9 +18,12 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     public String getMd5Password(String password,String salt) {
-        String str = password + salt;
-        str = DigestUtils.md2Hex(str).toUpperCase();
-        return str;
+//        String str = password + salt;
+//        str = DigestUtils.md5Hex(str);
+//        return str;
+        Md5Hash md5Hash = new Md5Hash(password, salt, 1024);
+        return md5Hash.toHex();
+
     }
 
     @Override
