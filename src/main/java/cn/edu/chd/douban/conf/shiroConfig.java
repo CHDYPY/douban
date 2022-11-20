@@ -31,11 +31,11 @@ public class shiroConfig {
         //authc表示受限资源,指定url需要form表单登录，
         // 默认会从请求中获取`username`、`password`,`rememberMe`等参数并尝试登录，
         // 如果登录不了就会跳转到loginUrl配置的路径。
-        map.put("/**", "authc");
+//        map.put("/**", "authc");
         //配置认证和授权规则
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
         //设置默认的登录界面
-        shiroFilterFactoryBean.setLoginUrl("/login.html");
+        shiroFilterFactoryBean.setLoginUrl("/pages/film_index.html");
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         return shiroFilterFactoryBean;
     }
@@ -46,6 +46,7 @@ public class shiroConfig {
         defaultWebSecurityManager.setRealm(realm);
         return defaultWebSecurityManager;
     }
+
     @Bean
     public Realm getRealm() {
         CustomRealm customRealm = new CustomRealm();
